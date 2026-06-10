@@ -1,0 +1,787 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacidad y Seguridad en Redes Sociales</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  background:#020617;
+  color:white;
+  font-family:'Segoe UI',Arial,sans-serif;
+}
+
+body.claro{
+  background:#e0f2fe;
+  color:#020617;
+}
+
+.navbar{
+  background:rgba(2,6,23,.94);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #0ea5e9;
+}
+
+.hero{
+  min-height:100vh;
+  background:
+  linear-gradient(90deg,rgba(2,6,23,.98),rgba(2,6,23,.35)),
+  url("https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1600&q=80");
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+}
+
+.hero h1{
+  font-size:65px;
+  font-weight:900;
+}
+
+.hero span{
+  color:#38bdf8;
+}
+
+.btn-cool{
+  background:linear-gradient(90deg,#7c3aed,#06b6d4);
+  color:white;
+  border:none;
+  padding:14px 30px;
+  border-radius:50px;
+  font-weight:bold;
+  transition:.3s;
+}
+
+.btn-cool:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 25px #38bdf8;
+}
+
+.glass{
+  background:rgba(15,23,42,.78);
+  border:1px solid rgba(56,189,248,.5);
+  border-radius:25px;
+  padding:30px;
+  backdrop-filter:blur(12px);
+  box-shadow:0 0 25px rgba(14,165,233,.25);
+}
+
+.section-title{
+  text-align:center;
+  font-weight:900;
+  margin:70px 0 35px;
+}
+
+.section-title span{
+  color:#38bdf8;
+}
+
+.stats{
+  margin-top:-80px;
+  position:relative;
+  z-index:5;
+}
+
+.stat h2{
+  color:#38bdf8;
+  font-weight:900;
+}
+
+.topic{
+  min-height:310px;
+  border-radius:28px;
+  padding:28px;
+  background-size:cover;
+  background-position:center;
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+  transition:.4s;
+}
+
+.topic:hover{
+  transform:translateY(-10px) scale(1.02);
+  box-shadow:0 0 28px #38bdf8;
+}
+
+.topic::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(2,6,23,.15),rgba(2,6,23,.96));
+}
+
+.topic-content{
+  position:relative;
+  z-index:2;
+}
+
+.topic h3{
+  color:#38bdf8;
+  font-weight:800;
+}
+
+.badge-num{
+  background:#38bdf8;
+  color:#020617;
+  padding:8px 14px;
+  border-radius:50px;
+  font-weight:bold;
+}
+
+.big-section{
+  background:
+  linear-gradient(90deg,rgba(2,6,23,.97),rgba(2,6,23,.35)),
+  url("https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=1600&q=80");
+  background-size:cover;
+  background-position:center;
+  padding:90px 0;
+  margin-top:60px;
+}
+
+.step,.news-card,.case-card{
+  background:#0f172a;
+  border:1px solid #1e40af;
+  border-radius:22px;
+  padding:22px;
+  height:100%;
+  transition:.3s;
+}
+
+.step:hover,.news-card:hover,.case-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 22px #2563eb;
+}
+
+.quiz-box{
+  background:linear-gradient(135deg,#0f172a,#172554);
+  border:1px solid #38bdf8;
+  border-radius:25px;
+  padding:30px;
+}
+
+.option{
+  background:#0f172a;
+  border:1px solid #334155;
+  color:white;
+  padding:14px;
+  border-radius:15px;
+  margin:10px 0;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.option:hover{
+  background:#1e40af;
+}
+
+.news-card{
+  padding:0;
+  overflow:hidden;
+}
+
+.news-card img{
+  height:180px;
+  width:100%;
+  object-fit:cover;
+}
+
+.news-card div{
+  padding:20px;
+}
+
+.real-case{
+  background:
+  linear-gradient(90deg,rgba(88,28,135,.95),rgba(2,6,23,.75)),
+  url("https://images.unsplash.com/photo-1611606063065-ee7946f0787a?auto=format&fit=crop&w=1600&q=80");
+  background-size:cover;
+  background-position:center;
+  border-radius:30px;
+  padding:45px;
+  border:1px solid #a855f7;
+}
+
+.timeline{
+  border-left:3px solid #38bdf8;
+  padding-left:25px;
+}
+
+.timeline div{
+  margin-bottom:25px;
+}
+
+.form-control,.form-select{
+  background:#020617;
+  color:white;
+  border:1px solid #38bdf8;
+  border-radius:14px;
+}
+
+.form-control::placeholder{
+  color:#94a3b8;
+}
+
+.modal-content{
+  background:#020617;
+  color:white;
+  border:1px solid #38bdf8;
+  border-radius:25px;
+}
+
+.modal-title{
+  color:#38bdf8;
+  font-weight:bold;
+}
+
+.btn-close{
+  filter:invert(1);
+}
+
+.progress{
+  height:25px;
+  background:#0f172a;
+  border:1px solid #38bdf8;
+}
+
+footer{
+  background:#020617;
+  border-top:1px solid #0ea5e9;
+  text-align:center;
+  padding:35px;
+  margin-top:60px;
+}
+
+.floating{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  background:#38bdf8;
+  color:#020617;
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:25px;
+  z-index:99;
+  box-shadow:0 0 20px #38bdf8;
+}
+
+a{
+  color:#38bdf8;
+  text-decoration:none;
+}
+
+@media(max-width:768px){
+  .hero h1{font-size:42px}
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">🛡️ SEGURIDAD <span style="color:#38bdf8">DIGITAL</span></a>
+
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#temas">Temas</a></li>
+        <li class="nav-item"><a class="nav-link" href="#checklist">Checklist</a></li>
+        <li class="nav-item"><a class="nav-link" href="#quiz">Quiz</a></li>
+        <li class="nav-item"><a class="nav-link" href="#caso">Caso real</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contacto">Formulario</a></li>
+        <li class="nav-item">
+          <button class="btn btn-sm btn-outline-info ms-2" onclick="cambiarModo()">Modo</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="col-md-7">
+      <h1>Privacidad y Seguridad en <span>Redes Sociales</span></h1>
+      <p class="lead">
+        Tu información personal vale mucho. Aprende a proteger tus cuentas, tus datos y tu identidad digital.
+      </p>
+      <a href="#temas" class="btn btn-cool mt-3">Explorar temas</a>
+      <a href="#quiz" class="btn btn-outline-light rounded-pill px-4 py-3 mt-3 ms-2">Hacer quiz</a>
+    </div>
+  </div>
+</section>
+
+<section class="container stats">
+  <div class="glass">
+    <div class="row text-center">
+      <div class="col-md-3 stat"><h2>90%</h2><p>comparte datos personales</p></div>
+      <div class="col-md-3 stat"><h2>50M+</h2><p>datos comprometidos</p></div>
+      <div class="col-md-3 stat"><h2>87%</h2><p>usa contraseñas repetidas</p></div>
+      <div class="col-md-3 stat"><h2>70%</h2><p>desconoce riesgos</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="container" id="temas">
+  <h2 class="section-title">Temas <span>principales</span></h2>
+
+  <div class="row g-4">
+
+    <div class="col-md-4">
+      <div class="topic" data-bs-toggle="modal" data-bs-target="#m1" style="background-image:url('https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=900&q=80')">
+        <div class="topic-content">
+          <span class="badge-num">1</span>
+          <h3 class="mt-3">Privacidad digital</h3>
+          <p>Controla qué información compartes y quién puede verla.</p>
+          <small>Haz clic para abrir información</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="topic" data-bs-toggle="modal" data-bs-target="#m2" style="background-image:url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80')">
+        <div class="topic-content">
+          <span class="badge-num">2</span>
+          <h3 class="mt-3">Riesgos en redes</h3>
+          <p>Robo de identidad, phishing, ciberacoso y estafas.</p>
+          <small>Haz clic para abrir información</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="topic" data-bs-toggle="modal" data-bs-target="#m3" style="background-image:url('https://images.unsplash.com/photo-1605902711622-cfb43c4437d4?auto=format&fit=crop&w=900&q=80')">
+        <div class="topic-content">
+          <span class="badge-num">3</span>
+          <h3 class="mt-3">Cómo protegerte</h3>
+          <p>Contraseñas seguras, privacidad y verificación en dos pasos.</p>
+          <small>Haz clic para abrir información</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="topic" data-bs-toggle="modal" data-bs-target="#m4" style="background-image:url('https://images.unsplash.com/photo-1589994965851-a8f479c573a9?auto=format&fit=crop&w=900&q=80')">
+        <div class="topic-content">
+          <span class="badge-num">4</span>
+          <h3 class="mt-3">Consecuencias legales</h3>
+          <p>Publicar datos privados sin permiso puede causar sanciones.</p>
+          <small>Haz clic para abrir información</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="topic" data-bs-toggle="modal" data-bs-target="#m5" style="background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80')">
+        <div class="topic-content">
+          <span class="badge-num">5</span>
+          <h3 class="mt-3">Datos impactantes</h3>
+          <p>Tu huella digital puede revelar más de lo que imaginas.</p>
+          <small>Haz clic para abrir información</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="topic" data-bs-toggle="modal" data-bs-target="#m6" style="background-image:url('https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=900&q=80')">
+        <div class="topic-content">
+          <span class="badge-num">6</span>
+          <h3 class="mt-3">Ejemplo real</h3>
+          <p>Caso Facebook - Cambridge Analytica.</p>
+          <small>Haz clic para abrir información</small>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="big-section" id="checklist">
+  <div class="container">
+    <div class="glass col-md-7">
+      <h2>Checklist interactivo de seguridad</h2>
+      <p>Marca lo que ya haces para protegerte:</p>
+
+      <label><input type="checkbox" class="check" onchange="actualizarProgreso()"> Uso contraseñas diferentes</label><br>
+      <label><input type="checkbox" class="check" onchange="actualizarProgreso()"> Tengo verificación en dos pasos</label><br>
+      <label><input type="checkbox" class="check" onchange="actualizarProgreso()"> No publico mi ubicación</label><br>
+      <label><input type="checkbox" class="check" onchange="actualizarProgreso()"> No acepto desconocidos</label><br>
+      <label><input type="checkbox" class="check" onchange="actualizarProgreso()"> Reviso la privacidad de mis cuentas</label>
+
+      <div class="progress mt-4">
+        <div id="barra" class="progress-bar bg-info" style="width:0%">0%</div>
+      </div>
+
+      <h5 id="nivel" class="mt-3"></h5>
+    </div>
+  </div>
+</section>
+
+<section class="container my-5">
+  <h2 class="section-title">Protégete en <span>4 pasos</span></h2>
+
+  <div class="row g-4">
+    <div class="col-md-3"><div class="step"><h4>🔑 Contraseñas</h4><p>Usa claves largas, únicas y difíciles.</p></div></div>
+    <div class="col-md-3"><div class="step"><h4>📱 Doble factor</h4><p>Activa la verificación en dos pasos.</p></div></div>
+    <div class="col-md-3"><div class="step"><h4>👀 Privacidad</h4><p>Configura quién puede ver tus publicaciones.</p></div></div>
+    <div class="col-md-3"><div class="step"><h4>🚫 Desconfía</h4><p>No abras enlaces extraños ni mensajes sospechosos.</p></div></div>
+  </div>
+</section>
+
+<section class="container my-5" id="quiz">
+  <h2 class="section-title">Mini <span>quiz interactivo</span></h2>
+
+  <div class="quiz-box">
+    <h4 id="pregunta">¿Cuál es una buena forma de proteger tu cuenta?</h4>
+
+    <div class="option" onclick="responder(false)">Usar la misma contraseña en todas partes</div>
+    <div class="option" onclick="responder(true)">Activar la verificación en dos pasos</div>
+    <div class="option" onclick="responder(false)">Aceptar solicitudes de desconocidos</div>
+
+    <h5 id="respuesta" class="mt-3"></h5>
+  </div>
+</section>
+
+<section class="container my-5" id="caso">
+  <h2 class="section-title">Caso real: <span>Facebook - Cambridge Analytica</span></h2>
+
+  <div class="real-case">
+    <div class="row align-items-center">
+      <div class="col-md-7">
+        <h2>¿Qué pasó?</h2>
+        <p>
+          Cambridge Analytica fue una empresa que recopiló información de millones de usuarios
+          de Facebook sin su consentimiento directo. Los datos fueron usados para crear perfiles
+          psicológicos y enviar propaganda política personalizada.
+        </p>
+
+        <h2>¿Por qué es importante?</h2>
+        <p>
+          Este caso demostró que nuestros likes, publicaciones, contactos y permisos de aplicaciones
+          pueden revelar mucho sobre nosotros. También enseñó que aceptar permisos sin leerlos puede
+          poner en riesgo nuestra privacidad.
+        </p>
+
+        <button class="btn btn-cool" data-bs-toggle="collapse" data-bs-target="#timelineCaso">
+          Ver línea del tiempo
+        </button>
+      </div>
+
+      <div class="col-md-5">
+        <div class="case-card">
+          <h4>Lección principal</h4>
+          <p>
+            Antes de usar una app o red social, revisa qué permisos solicita y configura la privacidad
+            de tu cuenta.
+          </p>
+          <p>✅ Lee permisos</p>
+          <p>✅ Limita apps conectadas</p>
+          <p>✅ Protege tus datos</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="collapse mt-4" id="timelineCaso">
+      <div class="timeline">
+        <div>
+          <h5>2014</h5>
+          <p>Una aplicación recopiló datos de usuarios y también de algunos contactos.</p>
+        </div>
+        <div>
+          <h5>2018</h5>
+          <p>El caso se volvió público y generó un debate mundial sobre privacidad.</p>
+        </div>
+        <div>
+          <h5>Después del escándalo</h5>
+          <p>Facebook cambió políticas y muchas personas comenzaron a revisar mejor sus permisos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container my-5" id="fuentes">
+  <h2 class="section-title">Noticias y <span>fuentes confiables</span></h2>
+
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="news-card">
+        <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=900&q=80">
+        <div>
+          <h5>Gobierno de México</h5>
+          <p>Cómo proteger tu privacidad en redes sociales.</p>
+          <a href="https://www.gob.mx/gncertmx/articulos/sabes-como-proteger-tu-privacidad-en-redes-sociales" target="_blank">Leer más</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="news-card">
+        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=900&q=80">
+        <div>
+          <h5>INCIBE</h5>
+          <p>Privacidad, identidad digital y reputación online.</p>
+          <a href="https://www.incibe.es/ciudadania/tematicas/privacidad" target="_blank">Leer más</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="news-card">
+        <img src="https://images.unsplash.com/photo-1589391886645-d51941baf7fb?auto=format&fit=crop&w=900&q=80">
+        <div>
+          <h5>UNICEF</h5>
+          <p>Qué es el ciberacoso y cómo detenerlo.</p>
+          <a href="https://www.unicef.org/es/end-violence/ciberacoso-que-es-y-como-detenerlo" target="_blank">Leer más</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container my-5" id="contacto">
+  <h2 class="section-title">Formulario de <span>opinión</span></h2>
+
+  <div class="glass">
+    <form action="https://formspree.io/f/xeewzedo" method="POST">
+
+      <input type="hidden" name="_subject" value="Nueva respuesta - Proyecto Privacidad y Seguridad">
+
+      <div class="row g-3">
+
+        <div class="col-md-6">
+          <label class="form-label">Nombre completo</label>
+          <input type="text" name="Nombre" class="form-control" placeholder="Escribe tu nombre" required>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Correo electrónico</label>
+          <input type="email" name="Correo" class="form-control" placeholder="correo@ejemplo.com" required>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Edad</label>
+          <input type="number" name="Edad" class="form-control" min="10" max="100" placeholder="Tu edad" required>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">¿Con qué frecuencia utilizas redes sociales?</label>
+          <select name="Frecuencia de uso" class="form-select" required>
+            <option value="">Selecciona</option>
+            <option>Todos los días</option>
+            <option>Varias veces por semana</option>
+            <option>Una vez por semana</option>
+            <option>Casi nunca</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Tema que más te interesó</label>
+          <select name="Tema favorito" class="form-select" required>
+            <option value="">Selecciona</option>
+            <option>Privacidad digital</option>
+            <option>Riesgos en redes sociales</option>
+            <option>Cómo protegerte</option>
+            <option>Consecuencias legales</option>
+            <option>Datos impactantes</option>
+            <option>Caso Cambridge Analytica</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">¿La información te fue útil?</label>
+          <select name="Utilidad" class="form-select" required>
+            <option value="">Selecciona</option>
+            <option>Mucho</option>
+            <option>Regular</option>
+            <option>Poco</option>
+          </select>
+        </div>
+
+        <div class="col-12">
+          <label class="form-label">¿Qué aprendiste hoy?</label>
+          <textarea name="Aprendizaje" rows="4" class="form-control" placeholder="Escribe lo que aprendiste..." required></textarea>
+        </div>
+
+        <div class="col-12">
+          <label class="form-label">Comentarios o sugerencias</label>
+          <textarea name="Comentarios" rows="4" class="form-control" placeholder="Escribe tus comentarios..."></textarea>
+        </div>
+
+        <div class="col-12 text-center">
+          <button type="submit" class="btn btn-cool">Enviar respuesta</button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <h4>🛡️ Tu información es valiosa. Protégela siempre.</h4>
+  <p>Proyecto escolar | Privacidad y Seguridad en Redes Sociales</p>
+</footer>
+
+<a href="#" class="floating"><i class="bi bi-arrow-up"></i></a>
+
+<!-- MODALES -->
+
+<div class="modal fade" id="m1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content p-3">
+      <div class="modal-header">
+        <h4 class="modal-title">Privacidad digital</h4>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p>La privacidad digital es el derecho de controlar tu información personal en internet. Incluye fotos, ubicación, mensajes, contraseñas, historial, gustos y publicaciones.</p>
+        <ul>
+          <li>Configura quién ve tus publicaciones.</li>
+          <li>No compartas datos sensibles.</li>
+          <li>Revisa permisos de aplicaciones.</li>
+          <li>No publiques ubicación en tiempo real.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="m2">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content p-3">
+      <div class="modal-header">
+        <h4 class="modal-title">Riesgos en redes sociales</h4>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p>Los principales riesgos son robo de identidad, ciberacoso, phishing, estafas, perfiles falsos, filtración de fotos y pérdida de cuentas.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="m3">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content p-3">
+      <div class="modal-header">
+        <h4 class="modal-title">Cómo protegerte</h4>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p>Usa contraseñas fuertes, activa verificación en dos pasos, evita enlaces sospechosos y configura tus redes como privadas.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="m4">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content p-3">
+      <div class="modal-header">
+        <h4 class="modal-title">Consecuencias legales</h4>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p>Publicar datos, fotos o información privada de otras personas sin permiso puede causar consecuencias legales y personales.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="m5">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content p-3">
+      <div class="modal-header">
+        <h4 class="modal-title">Datos impactantes</h4>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p>Una publicación puede revelar tu escuela, casa, rutina, amigos o lugares frecuentes. La huella digital puede permanecer mucho tiempo en internet.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="m6">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content p-3">
+      <div class="modal-header">
+        <h4 class="modal-title">Caso real: Cambridge Analytica</h4>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p>Cambridge Analytica recopiló datos de millones de usuarios de Facebook sin consentimiento directo. La información se usó para crear perfiles psicológicos y dirigir propaganda política personalizada.</p>
+        <p>Este caso demostró la importancia de revisar permisos, cuidar qué datos compartimos y configurar la privacidad de nuestras cuentas.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function responder(correcta){
+  const respuesta = document.getElementById("respuesta");
+
+  if(correcta){
+    respuesta.innerHTML = "✅ Correcto. La verificación en dos pasos aumenta la seguridad.";
+    respuesta.style.color = "#22c55e";
+  }else{
+    respuesta.innerHTML = "❌ Incorrecto. Esa acción puede poner en riesgo tu privacidad.";
+    respuesta.style.color = "#ef4444";
+  }
+}
+
+function actualizarProgreso(){
+  const checks = document.querySelectorAll(".check");
+  let marcados = 0;
+
+  checks.forEach(c => {
+    if(c.checked) marcados++;
+  });
+
+  let porcentaje = Math.round((marcados / checks.length) * 100);
+
+  document.getElementById("barra").style.width = porcentaje + "%";
+  document.getElementById("barra").innerHTML = porcentaje + "%";
+
+  let nivel = document.getElementById("nivel");
+
+  if(porcentaje === 0){
+    nivel.innerHTML = "";
+  }else if(porcentaje < 50){
+    nivel.innerHTML = "⚠️ Nivel bajo: necesitas mejorar tu seguridad.";
+    nivel.style.color = "#facc15";
+  }else if(porcentaje < 100){
+    nivel.innerHTML = "🛡️ Nivel medio: vas bien, pero aún puedes mejorar.";
+    nivel.style.color = "#38bdf8";
+  }else{
+    nivel.innerHTML = "✅ Nivel alto: tienes muy buenos hábitos digitales.";
+    nivel.style.color = "#22c55e";
+  }
+}
+
+function cambiarModo(){
+  document.body.classList.toggle("claro");
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+```
+
+Pégalo como `index.html`. Ya no lleva el JavaScript que bloqueaba el envío, así que Formspree sí recibirá los datos.
